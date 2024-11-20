@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automobile Dealership</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- For icons -->
+  <style>
+  /* General Styles */
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    overflow-x: hidden;
+    background-color: #f0f0f0;
+  }
+
+  /* Navbar */
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    position: sticky;
+    background-color: #f0f0f0; /* Ensures no background color */
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+  }
+  
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    flex: 1; /* Ensures the logo takes up space */
+  }
+
+  /* Stylish Search Bar */
+  .search-bar {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 50%; /* Adjust width as needed */
+    flex: 1; /* Ensures the search bar doesn't take too much space */
+    border-radius: 30px;
+    background-color: #e6e6e6; /* Muted background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+    padding: 5px 20px; /* Adds padding inside the search bar */
+  }
+
+  .search-bar input {
+    width: 100%;
+    padding: 8px 35px 8px 15px; /* Space for the icon */
+    font-size: 1rem;
+    border: none; /* No border for a sleek look */
+    background: transparent; /* Transparent background */
+    color: #333; /* Dark color for text */
+    outline: none; /* Remove default outline */
+    border-radius: 30px; /* Rounded corners */
+    
+  }
+
+  .search-bar i {
+    position: absolute;
+    right: 10px;
+    color: #666; /* Muted icon color */
+    font-size: 1.2rem;
+    pointer-events: none;
+  }
+
+  /* Navbar Links */
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    margin: 0;
+    padding: 0;
+    
+    flex: 1;
+    justify-content: center; /* Centers the icons */
+  }
+
+  .nav-links li {
+    display: inline;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.5rem; /* Icon size */
+  }
+
+  /* Hover Effect for Icons */
+  .nav-links a:hover {
+    color: rgb(179, 97, 4); /* Change color to orange on hover */
+  }
+
+  /* Main Content */
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 20px;
+  }
+
+  .car-section {
+    flex: 1;
+    text-align: left;
+  }
+
+  .car-image {
+    width: 100%;
+    height: auto;
+    max-width: 100%; /* The image will grow up to 80% of the container width */
+    display: block;
+  }
+
+  .text-section {
+    flex: 1;
+    padding-left: 5px;
+    text-align: right;
+    opacity: 0; /* Initially hide text */
+    transform: translateX(-100px); /* Start position for animation */
+    animation: slideIn 1s forwards;
+    background-color: #f0f0f000; /* Light background color */
+  border-radius: 10px; /* Optional: to give rounded corners */
+  padding: 50px; /* Optional: for extra spacing inside */
+  }
+  @keyframes slideIn {
+    to {
+      opacity: 1; /* Make text fully visible */
+      transform: translateX(0); /* Move text to its final position */
+    }
+  }
+
+  h1 {
+    font-size: 40px;
+    margin: 0;
+    color: #10375C;
+  }
+
+  p {
+    font-size: 60px;
+    margin: 20px 0 0;
+    color: #5a3403;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: center; /* Center the elements */
+    }
+
+    .search-bar {
+      width: 80%; /* Adjust width for smaller screens */
+      margin: 10px 0;
+    }
+
+    .container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .car-section, .text-section {
+      flex: unset;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+  /* Car Cards Section */
+.car-cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Ensures that the cards wrap on smaller screens */
+  gap: 20px;
+  padding: 40px 90px;
+  background-color: #f0f0f0; /* Light background for the car cards section */
+}
+
+/* Individual Car Card */
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 30%; /* Adjust width as needed */
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Zoom effect on hover */
+}
+
+/* Card Image */
+.card-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Card Information */
+.card-info {
+  padding: 20px;
+}
+
+.car-model {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #333;
+}
+
+.car-price {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #e64a19; /* Orange color for price */
+}
+
+.car-features {
+  font-size: 1rem;
+  color: #666;
+  margin: 5px 0;
+}
+/* Footer Styles */
+.footer {
+  background-color: #141313; /* Dark background */
+  color: #fff; /* White text color */
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-logo h2 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 30px;
+}
+
+.footer-links li {
+  display: inline;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ffffff; /* Orange color on hover */
+}
+
+.footer-socials {
+  display: flex;
+  gap: 20px;
+}
+
+.social-icon {
+  color: #fff;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #f39a7f; /* Change color on hover */
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 10px;
+  color: #aaa;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-socials {
+    gap: 15px;
+  }
+}
+
+.card a {
+  text-decoration: none; /* Remove underline from the link */
+  color: inherit; /* Ensure the link text color inherits from the parent */
+}
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">LOGO</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search..." />
+      <i class="fas fa-search"></i>
+    </div>
+    <ul class="nav-links">
+      <li><a href="acceuil.html"><i class="fas fa-home"></i></a></li>
+      <li><a href="#about"><i class="fas fa-heart"></i></a></li>
+      <li><a href="#contact"><i class="fa-sharp fa-solid fa-circle-info"></i></a></li>
+      <li><a href="profil.html"><i class="fa-sharp fa-solid fa-user"></i></a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    
+    <div class="car-section">
+      <img src="Artboard 1.png" alt="Car Image" class="car-image" >
+    </div>
+    <div class="text-section">
+      <h1 id="title">Drive Your Dreams with Us</h1>
+      <p id="subtitle">Discover Excellence in Every Ride!</p>
+    </div>
+  </div>
+<!--cards infos ta3 tonobile-->
+<br><br><br><br><br><br>
+<h1 style="margin-left:20px;color:#881104">CATALOGUE</h1>
+  <div class="car-cards">
+    
+    <div class="card">
+      <a href="info.html">
+      <img src="Artboard 1.png" alt="Car 1" class="card-image">
+      <div class="card-info">
+        <h3 class="car-model">hhhhhhhhhh</h3>
+        <p class="car-price">000</p>
+        <p class="car-features">hhhhhhhhhh,hhhhhhhh,hhhh</p>
+      </div>
+    </a>
+    </div>
+    
+    <div class="card">
+      <img src="Artboard 1.png" alt="Car 1" class="card-image">
+      <div class="card-info">
+        <h3 class="car-model">hhhhhhhhhh</h3>
+        <p class="car-price">000</p>
+        <p class="car-features">hhhhhhhhhh,hhhhhhhh,hhhh</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="Artboard 1.png" alt="Car 1" class="card-image">
+      <div class="card-info">
+        <h3 class="car-model">hhhhhhhhhh</h3>
+        <p class="car-price">000</p>
+        <p class="car-features">hhhhhhhhhh,hhhhhhhh,hhhh</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+  <br><br><br><br><br><br>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <h3>Automobile Dealership</h3>
+      </div>
+      
+      <div class="footer-socials">
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fa-sharp fa-solid fa-location-pin"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+    
+  </footer>
+</body>
+</html>

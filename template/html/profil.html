@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automobile Dealership</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- For icons -->
+    <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      overflow-x: hidden;
+      background-color: #f0f0f0;
+    }
+  
+    /* Navbar */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      position: sticky;
+      background-color: #f0f0f0; /* Ensures no background color */
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    
+  
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+      flex: 1; /* Ensures the logo takes up space */
+    }
+  
+    /* Stylish Search Bar */
+    .search-bar {
+      display: flex;
+      align-items: center;
+      position: relative;
+      width: 50%; /* Adjust width as needed */
+      flex: 1; /* Ensures the search bar doesn't take too much space */
+      border-radius: 30px;
+      background-color: #e6e6e6; /* Muted background color */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+      padding: 5px 20px; /* Adds padding inside the search bar */
+    }
+  
+    .search-bar input {
+      width: 100%;
+      padding: 8px 35px 8px 15px; /* Space for the icon */
+      font-size: 1rem;
+      border: none; /* No border for a sleek look */
+      background: transparent; /* Transparent background */
+      color: #333; /* Dark color for text */
+      outline: none; /* Remove default outline */
+      border-radius: 30px; /* Rounded corners */
+      
+    }
+  
+    .search-bar i {
+      position: absolute;
+      right: 10px;
+      color: #666; /* Muted icon color */
+      font-size: 1.2rem;
+      pointer-events: none;
+    }
+  
+    /* Navbar Links */
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 50px;
+      margin: 0;
+      padding: 0;
+      
+      flex: 1;
+      justify-content: center; /* Centers the icons */
+    }
+  
+    .nav-links li {
+      display: inline;
+    }
+  
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-size: 1.5rem; /* Icon size */
+    }
+  
+    /* Hover Effect for Icons */
+    .nav-links a:hover {
+      color: rgb(179, 97, 4); /* Change color to orange on hover */
+    }
+    .sidebar {
+        width: 180px;
+        background-color: #521c02;
+        color: #fff;
+        height: 100vh;
+        padding: 20px;
+        position: fixed;
+        margin-right:20px;
+    }
+
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .sidebar ul li {
+        margin: 20px 0;
+    }
+
+    .sidebar ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .sidebar ul li a:hover {
+        color: #cb7e4b;
+    }
+
+    .sidebar ul li a i {
+        margin-right: 10px;
+    }
+
+    /* Profile Container */
+    .profile-container {
+        margin-left: 270px;
+        padding: 20px;
+        width: 100%;
+    }
+
+    .profile-header {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background-color: #ccc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        color: #666;
+    }
+
+    .profile-info {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .profile-details {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .profile-item span {
+        font-size: 1rem;
+        color: #333;
+    }
+
+    .profile-item i {
+        cursor: pointer;
+        color: #666;
+        transition: color 0.2s ease;
+    }
+
+    .profile-item i:hover {
+        color: #007BFF;
+    }
+
+    /* Input for Edit */
+    .profile-item input {
+        border-top: 0px solid #ccc;
+        border-left: 0px solid #ccc;
+        border-right: 0px solid #ccc;
+        border-color: #521c02;
+        padding: 5px 10px;
+        border-radius: 10px;
+        font-size: 1rem;
+        pointer-events: none;
+        background-color: #fff;
+        width: 400px;
+        
+    }
+
+    .save-button {
+        padding: 8px 15px;
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: none;
+    }
+
+    .save-button:hover {
+        background-color: #0056b3;
+    }
+</style>
+<body>
+    <div class="navbar">
+        <div class="logo">LOGO</div>
+        <div class="search-bar">
+          <input type="text" placeholder="Search..." />
+          <i class="fas fa-search"></i>
+        </div>
+        <ul class="nav-links">
+          <li><a href="acceuil.html"><i class="fas fa-home"></i></a></li>
+          <li><a href="#about"><i class="fas fa-heart"></i></a></li>
+          <li><a href="#contact"><i class="fa-sharp fa-solid fa-circle-info"></i></a></li>
+          <li><a href="profil.html"><i class="fa-sharp fa-solid fa-user"></i></a></li>
+        </ul>
+      </div>
+      <div class="sidebar">
+        <h2>idk</h2>
+        <ul>
+            <li><a href="#"><i class="fas fa-calendar-check"></i> Reservations</a></li>
+            <li><a href="#"><i class="fas fa-history"></i> Historique</a></li>
+        </ul>
+    </div>
+
+   
+    <div class="profile-container">
+        <div class="profile-header">
+            <div class="profile-pic">P</div>
+            <div class="profile-info">
+                <h2>Zaidi lydia</h2>
+            </div>
+        </div>
+        <div class="profile-details">
+            <div class="profile-item">
+                <label style="font-weight: bolder;">Adresse:</label>
+                <input type="text" id="adresse" value="123 " disabled style="margin-left:48px" >
+                <i class="fas fa-pen" onclick="editField('adresse')"></i>
+            </div>
+            <div class="profile-item">
+                <label style="font-weight: bolder;">Phone Number:</label>
+                <input type="text" id="phone" value="6666666666" disabled />
+                 <i class="fas fa-pen" onclick="editField('phone')"></i>
+            </div>
+            <div class="profile-item">
+                <label style="font-weight: bolder;">Email:</label>
+                <input type="email" id="email" value="lydiazaidi2000@gmail.com" disabled style="margin-left:66px"/>
+                <i class="fas fa-pen" onclick="editField('email')"></i>
+            </div>
+            <div class="profile-item">
+                <label style="font-weight: bolder;">Password:</label>
+                <input type="password" id="password" value="********" disabled style="margin-left:30px" />
+                <i class="fas fa-pen" onclick="editField('password')"></i>
+            </div>
+            
+        </div>
+    </div>
+
+   
+</body>
+</html>

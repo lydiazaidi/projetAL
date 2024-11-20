@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automobile Dealership</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- For icons -->
+    <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      overflow-x: hidden;
+      background-color: #f0f0f0;
+    }
+  
+    /* Navbar */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      position: sticky;
+      background-color: #f0f0f0; /* Ensures no background color */
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    
+  
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+      flex: 1; /* Ensures the logo takes up space */
+    }
+  
+    /* Stylish Search Bar */
+    .search-bar {
+      display: flex;
+      align-items: center;
+      position: relative;
+      width: 50%; /* Adjust width as needed */
+      flex: 1; /* Ensures the search bar doesn't take too much space */
+      border-radius: 30px;
+      background-color: #e6e6e6; /* Muted background color */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+      padding: 5px 20px; /* Adds padding inside the search bar */
+    }
+  
+    .search-bar input {
+      width: 100%;
+      padding: 8px 35px 8px 15px; /* Space for the icon */
+      font-size: 1rem;
+      border: none; /* No border for a sleek look */
+      background: transparent; /* Transparent background */
+      color: #333; /* Dark color for text */
+      outline: none; /* Remove default outline */
+      border-radius: 30px; /* Rounded corners */
+      
+    }
+  
+    .search-bar i {
+      position: absolute;
+      right: 10px;
+      color: #666; /* Muted icon color */
+      font-size: 1.2rem;
+      pointer-events: none;
+    }
+  
+    /* Navbar Links */
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 50px;
+      margin: 0;
+      padding: 0;
+      
+      flex: 1;
+      justify-content: center; /* Centers the icons */
+    }
+  
+    .nav-links li {
+      display: inline;
+    }
+  
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-size: 1.5rem; 
+    }
+  
+    
+    .nav-links a:hover {
+      color: rgb(179, 97, 4); 
+    }
+    .content-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+        margin-left:50px;
+        margin-right: 50px;
+      }
+  
+      /* Image Section */
+      .image-section {
+        flex: 1;
+      }
+  
+      .image-section img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+  
+      /* Info Section */
+      .info-section {
+        flex: 1;
+        padding: 20px;
+        background-color: #e6e6e6;
+        border-radius: 10px;
+      }
+  
+      .info-section h1 {
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 15px;
+      }
+  
+      .info-section p {
+        font-size: 1rem;
+        color: #555;
+        margin: 10px 0;
+      }
+  
+      .info-section .button {
+        padding: 10px 20px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+      }
+  
+      .info-section .button:hover {
+        background-color: #0056b3;
+      }
+  
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .content-container {
+          flex-direction: column;
+        }
+  
+        .image-section, .info-section {
+          flex: unset;
+          width: 100%;
+        }
+      }
+    /* Footer Styles */
+.footer {
+    background-color: #141313; /* Dark background */
+    color: #fff; /* White text color */
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .footer-logo h2 {
+    margin: 0;
+    font-size: 2rem;
+  }
+  
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px;
+  }
+  
+  .footer-links li {
+    display: inline;
+  }
+  
+  .footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: #ffffff; /* Orange color on hover */
+  }
+  
+  .footer-socials {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .social-icon {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icon:hover {
+    color: #f39a7f; /* Change color on hover */
+  }
+  
+  .footer-bottom {
+    margin-top: 20px;
+    font-size: 10px;
+    color: #aaa;
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+  }
+  
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+    }
+  
+    .footer-links {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+  
+    .footer-socials {
+      gap: 15px;
+    }
+  }
+  .thumbnails {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    position: absolute;
+    bottom: -50px; /* Adjust this to place thumbnails just below the image */
+    width: 100%;
+  }
+
+  .thumbnails img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .thumbnails img:hover {
+    transform: scale(1.1);
+    border: 2px solid #007BFF;
+  }
+
+</style>  
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">LOGO</div>
+        <div class="search-bar">
+          <input type="text" placeholder="Search..." />
+          <i class="fas fa-search"></i>
+        </div>
+        <ul class="nav-links">
+          <li><a href="acceuil.html"><i class="fas fa-home"></i></a></li>
+          <li><a href="#about"><i class="fas fa-heart"></i></a></li>
+          <li><a href="#contact"><i class="fa-sharp fa-solid fa-circle-info"></i></a></li>
+          <li><a href="profil.html"><i class="fa-sharp fa-solid fa-user"></i></a></li>
+        </ul>
+      </div>
+ <br><br><br><br>
+      <div class="content-container">
+        <!-- Image Section -->
+        <div class="image-section">
+          <img id="main-image" src="Artboard 1.png" alt="Car Image" />
+        </div>
+    
+        <!-- Info Section -->
+        <div class="info-section">
+          <h1>Car Model XYZ</h1>
+          <p>This car is a blend of performance and luxury. It features the latest technology with outstanding fuel efficiency and a sleek design.</p>
+          <p><strong>Price:</strong> $45,000</p>
+          <p><strong>Year:</strong> 2023</p>
+          <p><strong>Engine:</strong> 2.5L V6 Turbo</p>
+          <p><strong>Color:</strong> Red</p>
+          <button class="button">Rserver seance de test </button>
+          <button class="button" style="background-color:brown">Commander</button>
+          
+        </div>
+      </div>
+      
+      <br><br><br><br><br><br>
+    <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <h3>Automobile Dealership</h3>
+          </div>
+          
+          <div class="footer-socials">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fa-sharp fa-solid fa-location-pin"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        
+    </footer>
+</body>
+</html>
